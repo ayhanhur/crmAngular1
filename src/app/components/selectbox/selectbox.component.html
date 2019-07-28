@@ -1,0 +1,4 @@
+<select class="custom-select" [id]="id" (change)="onSelect($event.target.value)">
+  <option value="">{{ defaultValue }}</option>
+  <option *ngFor="let value of values" [value]="value">{{ value }}</option>
+</select>

@@ -1,0 +1,62 @@
+.shw-rside {
+    width: 340px;
+}
+
+.reset-padding {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.right-sidebar {
+    position: initial;
+    width: 100%;
+    right: 0;
+    left: 0;
+    display: block;
+    .r-panel-body {
+        padding: 5px;
+    }
+}
+
+.ribbon-button-group {
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: 5px;
+    .btn {
+        float: left;
+        font-size: 22px;
+    }
+    .btn-circle {
+        padding: 5px;
+    }
+}
+
+.ribbon-wrapper-reverse {
+    &.card {
+        margin-bottom: 15px;
+    }
+    >.card-subtitle {
+        margin: 0;
+        padding: 0;
+        font-size: 14px;
+    }
+}
+
+.ribbon-wrapper,
+.ribbon-wrapper-reverse,
+.ribbon-wrapper-bottom,
+.ribbon-wrapper-right-bottom {
+    padding: 60px 15px 5px 15px
+}
+
+:host {
+    position: fixed;
+    left: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 340px;
+    min-width: 250px;
+    z-index: 9999;
+}

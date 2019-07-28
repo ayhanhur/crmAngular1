@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+
+.topbar ul.dropdown-user li .dw-user-box .u-img{
+  width:100% !important;
+}
+
+
+.modal.show .modal-dialog {
+  transition: 0.25s all;
+  opacity: 0;
+  transform: translate(0, 10vh);
+}
+.modal.custom-show .modal-dialog {
+  opacity: 1;
+  transform: translate(0, 0);
+}

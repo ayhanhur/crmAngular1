@@ -1,0 +1,145 @@
+<div class="card" *ngIf="!isLoading">
+    <div class="card-body lead-detail">
+        <div class="row">
+            <div class="col-lg-4">
+                <h4 class="card-title">Lead Detay</h4>
+            </div>
+            <div class="col-md-8" *ngIf="showRepresantSelect">
+                <form action="" class="pull-right inline-block">
+                    <div class="form-group inline-block">
+                        <select class="custom-select" id="inlineFormCustomSelect" name="represantId" [(ngModel)]="customerToRepresant.represant">
+                            <option selected disabled>Satış Temsilcisi Seçiniz</option>
+                            <option value="{{rep.PersonID}}" *ngFor="let rep of represant">{{rep.Person_Descriptor}}</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group inline-block">
+                        <a href="#" class="btn btn-info text-white" (click)="assignCustomerToRepresant()">Gönder</a>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+        <div class="table-responsive m-t-20">
+            <div class="inbox-center b-all table-responsive">
+                <table class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>
+                                <div class="checkbox">
+                                    <input type="checkbox" id="check_all_customers" value="check">
+                                    <label for="check_all_customers"></label>
+                                </div>
+                            </th>
+
+                            <th>Ad Soyad</th>
+                            <!--<th>ilgi Alanı</th>-->
+                            <th>Aksiyon</th>
+                            <th>Durumu</th>
+                            <!--<th>Kaynak</th>-->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="unread" *ngFor="let customer of customerList; let i = index">
+                            <td style="width:40px">
+                                <div class="checkbox">
+                                    <input type="checkbox" id="user_{{customer.actorID}}" name="cutomerId" (click)="customerIsChecked($event, customer.eventID)" value="{{customer.actorID}}">
+                                    <label for="user_{{customer.actorID}}"></label>
+                                </div>
+                            </td>
+                            <td class="hidden-xs-down">{{ customer.name }}</td>
+                            <td class="hidden-xs-down">{{ customer.event }}</td>
+                            <td>
+                                <!--<select class="custom-select" id="inlineFormCustomSelect_{{customer.EventID}}" name="represantId_{{customer.EventID}}" [(ngModel)]="customerToRepresant.represant">
+                                    <option selected disabled>Satış Temsilcisi Seçiniz</option>
+                                    <option value="{{rep.PersonID}}" *ngFor="let rep of represant">{{rep.Person_Descriptor}}</option>
+                                </select>-->
+                            </td>
+                            <!--<td class="text-right">  </td>-->
+                        </tr>
+
+                        <!--<tr class="unread">
+                            <td>
+                                <div class="checkbox">
+                                    <input type="checkbox" id="checkbox1" value="check">
+                                    <label for="checkbox1"></label>
+                                </div>
+                            </td>
+
+                            <td class="hidden-xs-down">Orhan Veli</td>
+                            <td class="max-texts"><a href="app-email-detail.html">Lorem ipsum perspiciatis unde omnis iste natus error sit voluptatem</a></td>
+                            <td class="hidden-xs-down">0555 123 34 34</td>
+                            <td class="text-right"> Kapıdan </td>
+                        </tr>
+                        <tr class="unread">
+                            <td>
+                                <div class="checkbox">
+                                    <input type="checkbox" id="checkbox2" value="check">
+                                    <label for="checkbox2"></label>
+                                </div>
+                            </td>
+
+                            <td class="hidden-xs-down">Halide Edip Adıvar</td>
+                            <td class="max-texts">
+                                <a href="app-email-detail.html">
+                                    <app-label theme="info" [text]="'2 + 1'" [ngClass]="'m-r-10'"></app-label><span class="label label-success m-r-10">3 + 1</span><span class="label m-r-10 label-danger m-r-10">4 + 1</span> Merkez Mahahlesi no:25 üst şişli adliye karşısı no:25 kat:3 daire 3 Bomonti / Şişli</a>
+                            </td>
+                            <td class="hidden-xs-down">0555 123 32 32</td>
+                            <td class="text-right"> Kapıdan </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="checkbox">
+                                    <input type="checkbox" id="checkbox3" value="check">
+                                    <label for="checkbox3"></label>
+                                </div>
+                            </td>
+
+                            <td class="hidden-xs-down">Ahmet Özsüzer</td>
+                            <td class="max-texts"><a href="app-email-detail.html"><span class="label label-warning">Ticari</span> Lorem ipsum perspiciatis unde omnis iste natus error sit voluptatem</a></td>
+                            <td class="hidden-xs-down">0555 123 32 32 </td>
+                            <td class="text-right"> Kapıdan</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="checkbox">
+                                    <input type="checkbox" id="checkbox4" value="check">
+                                    <label for="checkbox4"></label>
+                                </div>
+                            </td>
+
+                            <td class="hidden-xs-down">Hritik Roshan</td>
+                            <td class="max-texts"><a href="app-email-detail.html"><span class="label label-danger m-r-10">4 + 1</span> Lorem ipsum perspiciatis unde omnis iste natus error sit voluptatem</a></td>
+                            <td class="hidden-xs-down"><i class="fa fa-paperclip"></i></td>
+                            <td class="text-right"> Kapıdan </td>
+                        </tr>-->
+                    </tbody>
+
+                </table>
+            </div>
+            <!--
+            <ul class="pagination pull-right m-t-20">
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">«</span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">»</span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </li>
+            </ul>
+            -->
+
+        </div>
+
+    </div>
+</div>
+<app-content-placeholder *ngIf="isLoading"></app-content-placeholder>

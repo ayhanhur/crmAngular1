@@ -1,0 +1,30 @@
+.nowSticky {
+    width: 100%;
+}
+
+.topbar .top-navbar .navbar-header {
+    z-index: 2;
+}
+
+.navbar-expand-md .navbar-nav {
+    position: relative !important;
+}
+
+.dropdown,
+.dropup {
+    position: initial;
+}
+
+.dropdown {
+    li>a {
+        cursor: pointer;
+    }
+}
+
+.topbar .top-navbar .app-search {
+    margin-top: 5px;
+}
+
+.u-img {
+    width: auto !important;
+}

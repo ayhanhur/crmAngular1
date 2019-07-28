@@ -1,0 +1,42 @@
+<!-- ============================================================== -->
+<!-- Left Sidebar - style you can find in sidebar.scss  -->
+<!-- ============================================================== -->
+<aside class="left-sidebar">
+    <!-- Sidebar scroll-->
+    <div class="scroll-sidebar">
+        <!-- User profile -->
+        <!-- End User profile text-->
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav">
+            <ul id="sidebarnav">
+                <!--<li class="nav-small-cap">{{ userName }} PERSONAL</li>-->
+                <li>
+                    <a [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active" routerLink="/desk"><i class="fa fa-google-wallet" aria-hidden="true"></i>
+                        <span class="hide-menu">Banko Görevlisi</span></a>
+                </li>
+                <li><a [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active" routerLink="/customer-register"><i class="fa fa-users" aria-hidden="true"></i><span class="hide-menu">Müşteri Kayıt</span></a></li>
+                <!--<li><a [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active" routerLink="/customer-interview-card"><i class="mdi mdi-account-switch"></i><span class="hide-menu">Müşteri Görüşme Kartı</span></a></li>-->
+                <li><a [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active" routerLink="/salesman"><i class="fa fa-database" aria-hidden="true"></i>
+                    <span class="hide-menu">Satış Sorumlusu</span></a></li>
+                <li><a [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active" routerLink="/leads"><i class="fa fa-database" aria-hidden="true"></i>
+                    <span class="hide-menu">Lead Kayıtları</span></a></li>
+            </ul>
+        </nav>
+        <!-- End Sidebar navigation -->
+    </div>
+    <!-- End Sidebar scroll-->
+    <!-- Bottom points-->
+    <div class="sidebar-footer">
+        <!-- item-->
+
+        <a href="" class="link" placement="top" ngbTooltip="Ayarlar" title="Settings"><i class="fa fa-wrench" aria-hidden="true"></i></a>
+        <!-- item-->
+        <a href="" class="link" placement="top" ngbTooltip="Eposta" title="Email"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+        <!-- item-->
+        <a href="" class="link" placement="top" ngbTooltip="Çıkış" (click)="logout()" title="Logout"><i class="fa fa-power-off"></i></a>
+    </div>
+    <!-- End Bottom points-->
+</aside>
+<!-- ============================================================== -->
+<!-- End Left Sidebar - style you can find in sidebar.scss  -->
+<!-- ============================================================== -->

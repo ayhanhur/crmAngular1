@@ -1,0 +1,86 @@
+<div class="card" [ngClass]="{'content-loader': isLoading}">
+    <div class="card-body">
+        <h4 class="card-title">Müşteri Kayıt</h4>
+        <form action="" [formGroup]="customerForm" novalidate>
+
+            <div class="form-group">
+                <input type="text" class="form-control" formControlName="firstName" placeholder="Ad">
+            </div>
+
+            <div class="form-group">
+                <input type="text" class="form-control" formControlName="lastName" placeholder="Soyad">
+            </div>
+
+            <div class="form-group">
+                <input type="email" class="form-control" formControlName="eMail" placeholder="E-Posta">
+            </div>
+
+            <div class="form-group">
+                <input type="tel" class="form-control" formControlName="phoneNumber" placeholder="Telefon">
+            </div>
+
+            <div class="form-group">
+                <select class="form-control form-control-line custom-select" formControlName="reference" (change)="referenceDetail($event)">
+                    <option value="">Bizi Nerden Duydunuz?</option>
+                    <option *ngFor="let reference of references" [value]="reference.title">{{ reference.title }}</option>
+                </select>
+            </div>
+
+            <div class="form-group" *ngIf="showReferenceSearch">
+                <input type="text" class="form-control search" placeholder="Arama...">
+            </div>
+            <div class="form-group">
+                <label>İlgilendiği Daireler</label>
+                <div class="form-check">
+                    <label *ngFor="let interest of interests" class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" (change)="onChange('interests', interest.label, $event.target.checked)">
+                      <span class="custom-control-indicator"></span>
+                      <span class="custom-control-description">{{ interest?.label }}</span>
+                  </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Satın Alma Nedeni</label>
+                <div class="form-check">
+                    <label *ngFor="let reason of reasons" class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" (change)="onChange('reasons', reason.label, $event.target.checked)">
+                      <span class="custom-control-indicator"></span>
+                      <span class="custom-control-description">{{ reason.label }}</span>
+                  </label>
+                </div>
+            </div>
+            <hr>
+
+            <div class="form-group">
+                <label>Adres bilgileriniz...</label>
+                <textarea class="form-control" rows="5" formControlName="address"></textarea>
+            </div>
+            <div class="form-group">
+                <select class="form-control form-control-line custom-select" formControlName="country">
+                    <option value="">--Ülke Seçimi Yapınız --</option>
+                    <option *ngFor="let country of locationCountries" value="{{country.LocationID}}">{{ country.Name }}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <select class="form-control form-control-line custom-select" formControlName="city" (change)="getDistricts($event)">
+                    <option value="">--İl Seçimi Yapınız --</option>
+                    <option *ngFor="let city of locationCities" value="{{city.LocationID}}">{{ city.Name }}</option>
+                </select>
+            </div>
+            <div class="form-group" *ngIf="locationDistricts">
+                <select class="form-control form-control-line custom-select" formControlName="district">
+                    <option value="">--İlçe Seçimi Yapınız --</option>
+                    <option *ngFor="let district of locationDistricts" value="{{district.LocationID}}">{{ district.Name }}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="submit" [disabled]="!customerForm.valid" (click)="onSubmit()" class="btn btn-success waves-effect waves-light m-r-10">Kaydet</button>
+                <button type="submit" class="btn btn-inverse waves-effect waves-light">Temizle</button>
+            </div>
+
+            <!--<p>Form value: {{ customerForm.value | json }}</p>
+            <p>Form status: {{ customerForm.status | json }}</p>-->
+
+        </form>
+    </div>
+</div>

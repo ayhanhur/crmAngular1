@@ -1,0 +1,9 @@
+<div ngbDropdown>
+    <span class="nav-link dropdown-toggle text-muted waves-effect waves-dark avatar" id="dropdownBasic1" ngbDropdownToggle *ngIf="type == 'icon'">
+      <i class="fa fa-{{icon}} {{iconSize}}" style="vertical-align: sub;color:#fff !important;"></i>
+      </span>
+    <button class="btn btn-{{btnClass}} dropdown-toggle" id="dropdownBasic1" *ngIf="type == 'button'" ngbDropdownToggle>{{btnText}}</button>
+    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <ng-content></ng-content>
+    </div>
+</div>

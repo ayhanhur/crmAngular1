@@ -1,0 +1,14 @@
+.form-control {
+    width: 300px;
+}
+
+:host {
+    position: relative;
+}
+
+.loader-holder {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}

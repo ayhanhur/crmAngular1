@@ -1,0 +1,16 @@
+export class JCustomer {
+    PersonID: number;
+    Code: string;
+    Status: number;
+    Title: string;
+    Name: string;
+    Surname: string;
+    Gender: number;
+    IdentityNumber: string;
+    BirthDate: string;
+    Nationality: string;
+    BirthPlace: string;
+    RowCount: number;
+    UserID: number;
+    ULanguageID: number;
+}

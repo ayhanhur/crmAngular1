@@ -1,0 +1,4 @@
+<span *ngIf="searching && isPromising" class="loader-holder">
+    <app-loader-icon [loader]="spinnerTheme"></app-loader-icon>
+</span>
+<input id="typeahead-basic" placeholder="{{placeholder}}" (selectItem)="onKeyUp($event)" type="text" class="form-control" [(ngModel)]="model" [inputFormatter]="formatter" [resultFormatter]="formatterResult" [ngbTypeahead]="searchResult" />

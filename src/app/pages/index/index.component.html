@@ -1,0 +1,28 @@
+<div id="main-wrapper">
+
+    <ma-navigation (actionEvent)="sideBarToggleListener($event.clickStatus)"></ma-navigation>
+
+
+    <ma-sidebar></ma-sidebar>
+
+    <div class="page-wrapper" [ngClass]="{'page-loader': isLoading }">
+        <div class="preloader">
+            <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
+        </div>
+        <div class="container-fluid">
+            <app-breadcrumb (clickEvent)="catchEvent($event)"></app-breadcrumb>
+
+            <router-outlet></router-outlet>
+
+            <ma-rightsidebar (actionEvent)="catchEvent($event)" [@slideInOutAnimation]="menuState"></ma-rightsidebar>
+
+        </div>
+
+        <footer class="footer">
+            © 2017 juno sales crm.
+        </footer>
+
+    </div>
+
+</div>

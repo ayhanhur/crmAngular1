@@ -1,0 +1,30 @@
+<div class="modal-header">
+    <h4 class="modal-title">Görev Ekle</h4>
+    <button type="button" class="close" (click)="closeModal()" aria-label="Close">
+                              <span>×</span>
+                            </button>
+</div>
+<div class="modal-body">
+    <form [formGroup]="todoForm" novalidate>
+        <div class="form-group">
+            <label>Görev Tanımı</label>
+            <input type="text" class="form-control" formControlName="task" placeholder="">
+        </div>
+        <div class="form-group">
+            <label>Altbilgi</label>
+            <input type="email" class="form-control" formControlName="subtask" placeholder="">
+        </div>
+        <div class="form-group">
+            <label>Tarih Belirle</label>
+            <app-datepicker (dateEvent)="dateResult($event)"></app-datepicker>
+        </div>
+        <div class="form-group">
+            <label>Saat Belirle</label>
+            <app-timepicker (timeEvent)="timeResult($event)"></app-timepicker>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary">Temizle</button>
+    <button type="button" class="btn btn-primary" [disabled]="!todoForm.valid" (click)="onSubmit()">Ekle</button>
+</div>

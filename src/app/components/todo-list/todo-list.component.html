@@ -1,0 +1,23 @@
+<div class="card">
+    <div class="card-body">
+        <button class="pull-right btn btn-sm btn-rounded btn-success" (click)="openModal()">Yeni Görev</button>
+        <h4 class="card-title">Görev Ekle</h4>
+        <!-- ============================================================== -->
+        <!-- To do list widgets -->
+        <!-- ============================================================== -->
+        <div class="to-do-widget m-t-20" [ngClass]="{'content-loader': isLoading}">
+            <!-- .modal for add task -->
+            <!-- /.modal -->
+            <ul class="list-task todo-list list-group m-b-0">
+                <li class="list-group-item animated {{animation}}" [ngClass]="{'task-done': completed[todo.id]}" style="border-bottom:1px solid rgba(120, 130, 140, 0.13)" *ngFor="let todo of todos; let i = index" [class.completed]="todo.complete">
+                    <div class="checkbox checkbox-info">
+                        <input type="checkbox" id="inputBook{{todo.id}}" name="inputCheckboxesBook" [checked]="checkStatus[todo.id]">
+                        <label for="inputBook{{todo.id}}" (click)="taskDone(todo.id)"> <span>{{todo.task}}</span> <span class="label label-success">{{ convertDate(todo.date)}}</span></label>
+                    </div>
+                    <div class="item-date">{{todo.subtask}}</div>
+                    <span class="text-danger animated bounceIn float-right remove-icon" (click)="removeTodo(todo.id)" *ngIf="completed[todo.id] == true"><i class="fa fa-trash"></i></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
